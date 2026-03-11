@@ -1,0 +1,130 @@
+/* =================== 响应式设计 =================== */
+
+/* 平板设备 (768px以下) */
+@media (max-width: 768px) {
+    .bottom-right-controls {
+        bottom: 15px;
+        right: 15px;
+        gap: 12px;
+        min-width: 150px;
+        min-height: 100px;
+        padding: 10px;
+    }
+
+    .game-controls {
+        top: 15px;
+        left: 15px;
+        padding: 8px 12px;
+    }
+
+    .pause-button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    /* 新增：移动端右下角控制区样式 */
+    .bottom-right-controls {
+        bottom: 15px;
+        right: 15px;
+        gap: 12px;
+        min-width: 150px;
+        min-height: 100px;
+        padding: 10px;
+    }
+
+    .satisfaction-display {
+        padding: 6px 10px;
+        font-size: 16px;
+        min-width: 90px;
+        gap: 6px;
+    }
+
+    .satisfaction-display i {
+        font-size: 20px;
+    }
+
+    .satisfaction-display span {
+        font-size: 20px;
+    }
+
+    .depart-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        min-width: 100px;
+        gap: 6px;
+    }
+
+    .depart-button i {
+        font-size: 20px;
+    }
+
+    .requirement-card {
+        width: 320px;
+        height: 280px;
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .requirement-name {
+        font-size: 22px;
+    }
+
+    .requirement-content {
+        font-size: 16px;
+    }
+}
+
+/* 手机设备 (480px以下) */
+@media (max-width: 480px) {
+
+    /* 新增：小屏幕右下角控制区样式 */
+    .bottom-right-controls {
+        top: 10px;
+        right: 10px;
+        gap: 8px;
+        min-width: 120px;
+        min-height: 80px;
+        padding: 8px;
+    }
+
+    .satisfaction-display {
+        padding: 8px 12px;
+        font-size: 16px;
+        min-width: 90px;
+        border-radius: 8px;
+        gap: 5px;
+    }
+
+    .satisfaction-display i {
+        font-size: 18px;
+    }
+
+    .satisfaction-display span {
+        font-size: 18px;
+    }
+
+    .depart-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        min-width: 90px;
+        gap: 5px;
+    }
+
+    .depart-button i {
+        font-size: 18px;
+    }
+
+    .requirement-card {
+        width: 280px;
+        height: 240px;
+    }
+
+    .requirement-name {
+        font-size: 20px;
+    }
+
+    .requirement-content {
+        font-size: 14px;
+    }
+}

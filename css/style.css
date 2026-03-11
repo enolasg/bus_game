@@ -1,0 +1,1338 @@
+/* =================== 基础样式 =================== */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* 必须设置为 hidden */
+    position: fixed;
+    /* 固定位置 */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+body {
+    background-color: #000;
+    overflow: hidden !important;
+    /* 强制覆盖 */
+    height: 100vh;
+    width: 100vw;
+}
+
+
+/* =================== 游戏主容器样式 =================== */
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* =================== 游戏主容器样式 =================== */
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* =================== 暂停弹窗样式 =================== */
+.pause-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 使用深色半透明背景 */
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+    /* 背景模糊效果 */
+}
+
+.modal-content {
+    background: none;
+    text-align: center;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-content h2 {
+    color: white;
+    margin-bottom: 52px;
+    font-size: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-width: 280px;
+}
+
+.modal-btn {
+    padding: 18px 35px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    /* 文字居中，无图标时更美观 */
+    text-align: center;
+    width: 100%;
+    /* 使按钮宽度一致 */
+    min-height: 60px;
+    /* 设置最小高度 */
+    font-family: 'Arial Black', 'Arial', sans-serif;
+    /* 使用更醒目的字体 */
+}
+
+.modal-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.continue-btn {
+    background: linear-gradient(145deg, #45455F);
+}
+
+.continue-btn:hover {
+    background: linear-gradient(145deg, #E06C5D);
+}
+
+.restart-btn {
+    background: linear-gradient(145deg, #45455F);
+}
+
+.restart-btn:hover {
+    background: linear-gradient(145deg, #E06C5D);
+}
+
+.home-btn {
+    background: linear-gradient(145deg, #45455F);
+}
+
+.home-btn:hover {
+    background: linear-gradient(145deg, #E06C5D);
+}
+
+/* =================== 游戏主容器样式 =================== */
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 背景图片 - 全屏覆盖 */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* =================== 公交车容器样式调整 =================== */
+.bus-image-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1200px;
+    min-width: 900px;
+    max-height: 90vh;
+    /* 限制最大高度 */
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+    /* 防止内部溢出 */
+}
+
+.bus-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* 保持图片比例 */
+    display: block;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* 座位覆盖层 - 透明点击区域 */
+.seat-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: all;
+    z-index: 10 !important;
+}
+
+/* =================== 座位基础样式 =================== */
+.seat {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    z-index: 15 !important;
+    pointer-events: auto !important;
+    /* 为透明背景和边框 */
+    background: transparent !important;
+    /* 透明背景 */
+    border: 2px solid transparent !important;
+    /* 透明边框 */
+}
+
+/* 座位悬停效果 */
+.seat:hover {
+    transform: scale(1.05);
+}
+
+/* 座位高亮效果 */
+.seat.highlight {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 165, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 165, 0, 0);
+    }
+}
+
+/* =================== 站位区域样式 =================== */
+.standing-area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.standing-spot {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    /* 修改：改为透明背景和边框 */
+    background: transparent !important;
+    /* 透明背景 */
+    border: 2px solid transparent !important;
+    /* 透明边框 */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7f8c8d;
+    font-weight: bold;
+    z-index: 15 !important;
+    pointer-events: auto !important;
+}
+
+.standing-spot.occupied {
+    pointer-events: all;
+    /* 占位后依然允许点击，以便拿起乘客 */
+}
+
+.standing-spot.occupied::before,
+.standing-spot.occupied::after {
+    /* 清除所有伪元素内容，特别是对勾标记 */
+    content: none !important;
+    display: none !important;
+}
+
+/* 确保站位在占用时不会有任何特殊标记 */
+.standing-spot.occupied {
+    /* 恢复到正常状态，只保留基本样式 */
+    border: 2px solid #666;
+    background-color: rgba(76, 175, 80, 0.1);
+    /* 轻微绿色背景表示站位 */
+}
+
+/* 站位选中状态 */
+.standing-spot.selected {
+    border-color: #f0f0f0;
+    box-shadow: 0 0 0 3px rgba(225, 225, 225, 0.5);
+    transform: scale(1.1);
+    border-style: solid;
+}
+
+.standing-spot:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* =================== 已放置乘客显示样式 =================== */
+/* 乘客显示区域 - 与公交车容器完全重合 */
+.passenger-display {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 606px;
+    pointer-events: none !important;
+    z-index: 5 !important;
+    overflow: visible !important;
+}
+
+.passenger-on-seat {
+    /* 定位与层级 */
+    position: absolute;
+    z-index: 20;
+    pointer-events: auto;
+    cursor: pointer;
+
+    /* 尺寸与形状 */
+    width: 70px;
+    height: 70px;
+    border-radius: 8px !important;
+
+    /* 背景与边框 */
+    background-color: transparent;
+    border: none;
+
+    /* 文字样式 */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+
+    /* 布局 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    /* 重要：基础 transform 由 JS 设置，这里不设置 */
+    /* transform 由 JS 动态设置 */
+
+    /* 悬停效果 - 使用 box-shadow 替代 transform */
+    transition: box-shadow 0.3s ease;
+}
+
+/* 确保图片不被裁剪 */
+.passenger-on-seat img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    border: none;
+    background: transparent;
+    pointer-events: none;
+}
+
+/* 悬停效果 - 不再修改 transform */
+.passenger-on-seat:hover {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    /* 移除 transform */
+}
+
+/* 选中效果 - 使用 outline 替代 transform */
+.passenger-on-seat.selected {
+    z-index: 1000 !important;
+    box-shadow: 0 0 20px gold, 0 0 30px rgba(255, 215, 0, 0.5);
+    outline: 3px solid gold;
+    outline-offset: 2px;
+    /* 移除 transform */
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =================== 游戏控制区样式 =================== */
+.game-controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 4;
+}
+
+.pause-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #e06c5d);
+    border: 3px solid #ffffff;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    /* box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset; */
+    /* 内阴影增加层次感 */
+}
+
+.pause-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(231, 76, 60, 0.4);
+}
+
+/* =================== 等车区样式 =================== */
+.waiting-area {
+    position: fixed;
+    bottom: 0px;
+    right: 250px;
+    width: 600px;
+    height: 300px;
+    z-index: 20;
+    pointer-events: none;
+    /* background: rgba(0, 0, 0, 0.3); */
+    /* 添加半透明背景，便于调试定位 */
+    border-radius: 15px;
+    /* 容器不拦截点击 */
+}
+
+/* 等待区乘客样式 */
+.waiting-passenger {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: transparent;
+    /* 改为透明，由图标提供背景 */
+    border: none;
+    border-radius: 8px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* 移除默认的box-shadow，改为透明或移除 */
+    box-shadow: none;
+    /* 修改这里：移除默认阴影 */
+
+    transition: all 0.3s ease;
+    font-size: 24px;
+    color: white;
+    opacity: 1;
+    pointer-events: auto !important;
+    /* 只有乘客图标可点击 */
+    transform: translate(0, 0);
+    overflow: hidden;
+    /* 确保图标不溢出 */
+}
+
+.waiting-passenger:hover {
+    transform: scale(1.1);
+    /* 修改这里：只保留金色光晕效果，移除黑色阴影 */
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+/* 确保选中乘客层级最高 */
+.waiting-passenger.selected {
+    z-index: 1000 !important;
+    transform: scale(1.2);
+    /* 修改这里：只保留金色效果，移除黑色背景阴影 */
+    box-shadow: 0 0 20px gold, 0 0 30px rgba(255, 215, 0, 0.5);
+    border: 3px solid gold;
+}
+
+.waiting-passenger.placed {
+    display: none;
+    /* 被放置后消失 */
+}
+
+/* =================== 需求卡样式调整 =================== */
+.requirement-card {
+    position: absolute;
+    bottom: 20px;
+    /* 改为固定底部距离 */
+    left: 80px;
+    width: 380px;
+    height: 270px;
+    max-height: 30vh;
+    /* 限制最大高度 */
+    z-index: 9998 !important;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-image: url('../assets/demand_card.png');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+/* 显示状态：从下往上弹出 */
+.requirement-card.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    /* box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15),
+        0 -2px 8px rgba(139, 69, 19, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.6);
+} */
+}
+
+/* 卡片内容容器 */
+.card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 名字区域 - 顶部深色标题区 */
+.requirement-name-section {
+    /* 修改：改为透明背景，显示图片的顶部区域 */
+    background-color: transparent;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 25px;
+    box-sizing: border-box;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    /* 新增：调整整体位置 */
+    margin-top: 40px;
+    /* 距离顶部10px */
+    margin-left: 15px;
+    /* 距离左侧15px */
+    /* 移除原有的阴影，让图片完全显示 */
+    /* box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1); */
+    /* 移除原有的渐变背景 */
+    /* background: linear-gradient(135deg, #c56e62 0%, #b3594d 100%); */
+}
+
+.requirement-name {
+    font-size: 26px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: left;
+    margin: 0;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 要求区域 - 主要内容显示区 */
+.requirement-content-section {
+    /* 修改：改为透明背景，显示图片的底部区域 */
+    background-color: transparent;
+    height: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px 25px;
+    box-sizing: border-box;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* 移除原有的背景色 */
+    /* background: #FFE4E1; */
+    /* 新增：调整文字位置 */
+    position: relative;
+    top: 0px;
+    /* 向下偏移5px */
+    left: 15px;
+    /* 向右偏移10px */
+    /* 或者使用 transform 进行精确调整 */
+}
+
+.requirement-content {
+    font-size: 20px;
+    /* 修改：调整文字颜色以在背景图片上更清晰 */
+    color: #45455F;
+    /* 保持原色或根据需要调整 */
+    text-align: left;
+    line-height: 1.6;
+    margin: 0;
+    width: 100%;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+/* =================== 拖拽中的乘客样式 =================== */
+.dragging-passenger {
+    position: fixed;
+    width: 70px;
+    /* 调整为与乘客图标相同大小 */
+    height: 70px;
+    /* 调整为与乘客图标相同大小 */
+    background: transparent;
+    /* 改为透明，由图标提供背景 */
+    border: none !important;
+    border-radius: 8px !important;
+    /* 方形带圆角 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    pointer-events: none;
+    /* 不拦截鼠标事件 */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%);
+    /* 居中跟随 */
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    /* 拖拽时显示金色边框 */
+    cursor: none;
+    /* 隐藏鼠标指针 */
+    overflow: hidden;
+    /* 确保图标不溢出 */
+    z-index: 9999 !important;
+    /* 最高层级 */
+}
+
+/* 确保图片元素本身没有背景 */
+.passenger-on-seat img,
+.waiting-passenger img,
+.dragging-passenger img {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 8px !important;
+    /* 与容器保持一致 */
+}
+
+/* 移除可能存在的白色背景样式 */
+.passenger-on-seat::before,
+.waiting-passenger::before,
+.dragging-passenger::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* =============层级设置========== */
+/* 跟随鼠标的乘客元素 - 最高层级 */
+.dragging-passenger {
+    z-index: 9999 !important;
+    /* 最高层级 */
+    pointer-events: none;
+}
+
+/* 需求卡 - 次高层级 */
+#requirement-card {
+    z-index: 9998 !important;
+    /* 次高层级 */
+}
+
+/* 基础层级设置 */
+.waiting-passenger {
+    z-index: 10;
+    position: absolute;
+}
+
+.passenger-on-seat {
+    z-index: 20;
+    position: absolute;
+}
+
+.seat,
+.standing-spot {
+    z-index: 5;
+    position: absolute;
+}
+
+.dragging-passenger.show {
+    opacity: 1;
+    /* 改为完全不透明 */
+}
+
+.dragging-passenger .passenger-icon {
+    width: 18px;
+    height: 18px;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.dragging-passenger .passenger-name {
+    font-size: 9px;
+}
+
+/* =================== 结果弹窗样式 =================== */
+.result-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.result-modal-content {
+    background: #2C3E50;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    min-width: 400px;
+    max-width: 600px;
+    animation: modalAppear 0.3s ease-out;
+}
+
+.result-modal-content h2 {
+    color: #E06C5D;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+/* =================== 右上角控制区样式 =================== */
+.bottom-right-controls {
+    position: fixed;
+    top: 0px;
+    right: 3%;
+    min-width: 280px;
+    min-height: 260px;
+    z-index: 999;
+    background-image: url('../assets/fachepai.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 10px;
+    pointer-events: none;
+}
+
+/* =================== 满意度统计显示样式 =================== */
+.satisfaction-display {
+    color: #45455F;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 120px;
+    justify-content: center;
+    pointer-events: auto;
+    /* 允许点击事件 */
+    /* background: rgba(255, 255, 255, 0.9); */
+    /* 添加半透明白色背景提高可读性 */
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
+    /* 添加阴影增强层次感 */
+    margin-top: 30%;
+    /* 新增：距离上方元素10px间距 */
+    margin-left: 15px;
+    /* 新增：距离左侧20px（向右偏移） */
+}
+
+.satisfaction-display i {
+    color: #FFD700;
+    /* 金色星星 */
+    font-size: 32px;
+    text-shadow: 0 0 5px rgba(201, 101, 58, 0.5);
+    text-shadow: 1px 1px 3px rgba(165, 130, 49, 0.4);
+}
+
+.satisfaction-display span {
+    font-size: 30px;
+}
+
+#satisfaction-count {
+    color: #FFD700;
+    /* 金色数字 */
+    font-weight: bold;
+    /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); */
+}
+
+#total-passengers {
+    color: #45455F;
+    font-weight: normal;
+}
+
+/* =================== 修复满意度星星图标 =================== */
+
+/* 确保图标容器正确显示 */
+.satisfaction-display i {
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+/* 如果使用FontAwesome，确保字体加载 */
+.satisfaction-display .fa-star:before {
+    content: "\f005" !important;
+    /* FontAwesome星星的unicode */
+}
+
+/* 备用方案：用CSS创建星星 */
+.satisfaction-display .star-icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: #FFD700;
+    clip-path: polygon(50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%);
+    margin-right: 8px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* 或者使用SVG背景图片 */
+.satisfaction-display .star-svg {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23FFD700" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+}
+
+
+/* =================== 发车按钮样式 =================== */
+.depart-button {
+    padding: 12px 24px;
+    font-size: 18px;
+    background: #c56e62;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 140px;
+    pointer-events: auto;
+    /* 允许点击事件 */
+    border: 3px solid #45455F;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
+    margin-top: 0px;
+    /* 新增：距离上方元素10px间距 */
+    margin-left: 20px;
+    /* 新增：距离左侧20px（向右偏移） */
+}
+
+.depart-button:hover {
+    background: linear-gradient(145deg, #a93c2b);
+    transform: translateY(-3px);
+}
+
+.depart-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.depart-button i {
+    font-size: 22px;
+}
+
+/* =================== 乘客聊天气泡样式 =================== */
+.passenger-chat-bubble {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+    animation: fadeInUp 0.3s ease;
+}
+
+.passenger-chat-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(0, 0, 0, 0.8);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* =================== 动画效果 =================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bus-image-container,
+.game-controls {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.waiting-passenger,
+.passenger-on-seat {
+    /* 移除title属性产生的提示 */
+    pointer-events: auto;
+}
+
+/* 确保不会产生浏览器默认提示 */
+.waiting-passenger[title],
+.passenger-on-seat[title] {
+    /* 强制不显示默认提示 */
+    text-decoration: none;
+}
+
+/* ========确保选中乘客的层级最高======= */
+.waiting-passenger.selected,
+.passenger-on-seat.selected {
+    z-index: 1000 !important;
+    /* 最高层级 */
+    transform: scale(1.1);
+    box-shadow: 0 0 15px gold;
+    border: 2px solid gold;
+}
+
+/* =================== 发车确认弹窗样式 =================== */
+.confirm-depart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    animation: modalAppear 0.3s ease-out;
+}
+
+.confirm-depart-content {
+    background: linear-gradient(145deg, #2c3e50, #1a252f);
+    padding: 50px;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.6),
+        0 0 0 2px rgba(224, 108, 93, 0.4),
+        0 0 40px rgba(224, 108, 93, 0.3);
+    min-width: 450px;
+    max-width: 500px;
+    border: 2px solid rgba(224, 108, 93, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 背景装饰效果 */
+.confirm-depart-content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(224, 108, 93, 0.15) 0%, transparent 70%);
+    z-index: -1;
+}
+
+/* 标题样式 */
+.confirm-title {
+    font-size: 32px;
+    color: #fff;
+    margin: 0 0 30px 0;
+    font-weight: bold;
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+    position: relative;
+    display: inline-block;
+}
+
+.confirm-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #E06C5D, transparent);
+    border-radius: 2px;
+}
+
+/* 提示文字样式 */
+.confirm-message {
+    font-size: 20px;
+    color: #ddd;
+    margin: 0 0 40px 0;
+    line-height: 1.5;
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+}
+
+/* 按钮容器样式 */
+.confirm-buttons {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+/* 按钮通用样式 */
+.confirm-btn {
+    padding: 16px 40px;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 150px;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.confirm-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.confirm-btn:hover::before {
+    left: 100%;
+}
+
+/* 确认按钮样式 */
+.confirm-ok {
+    background: linear-gradient(145deg, #E06C5D, #c55648);
+    color: white;
+    box-shadow: 0 8px 20px rgba(224, 108, 93, 0.4);
+}
+
+.confirm-ok:hover {
+    background: linear-gradient(145deg, #8f3b2f, #7a3228);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(224, 108, 93, 0.6);
+}
+
+/* 取消按钮样式 */
+.confirm-cancel {
+    background: linear-gradient(145deg, #34495e, #2c3e50);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.confirm-cancel:hover {
+    background: linear-gradient(145deg, #2c3e50, #1a252f);
+    transform: translateY(-3px);
+    border-color: rgba(224, 108, 93, 0.4);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* 关闭按钮 */
+.close-confirm-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-confirm-btn:hover {
+    background: rgba(224, 108, 93, 0.8);
+    transform: rotate(90deg);
+}
+
+/* 动画效果 */
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 应用动画 */
+.confirm-title,
+.confirm-message {
+    animation: slideInUp 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.confirm-message {
+    animation-delay: 0.1s;
+}
+
+.confirm-buttons {
+    animation: slideInUp 0.5s ease-out;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .confirm-depart-content {
+        min-width: 85%;
+        padding: 40px 30px;
+        margin: 20px;
+    }
+
+    .confirm-title {
+        font-size: 28px;
+    }
+
+    .confirm-message {
+        font-size: 18px;
+    }
+
+    .confirm-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .confirm-btn {
+        min-width: 100%;
+        padding: 14px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .confirm-depart-content {
+        padding: 35px 25px;
+    }
+
+    .confirm-title {
+        font-size: 24px;
+    }
+
+    .confirm-message {
+        font-size: 16px;
+    }
+
+    .confirm-btn {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+
+/* =================== 重新开始确认弹窗样式（与暂停弹窗按钮统一） =================== */
+.restart-confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10001;
+    /* 比暂停弹窗更高 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.restart-confirm-content {
+    background: linear-gradient(145deg, #2C3E50, #1a252f);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    min-width: 400px;
+    max-width: 500px;
+    border: 2px solid #E06C5D;
+}
+
+.restart-title {
+    color: #E06C5D;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.restart-message {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+/* 修改这里：确保按钮容器使用与暂停弹窗相同的样式 */
+.restart-confirm-modal .restart-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-width: 280px;
+}
+
+/* 关键修改：重新开始确认弹窗的按钮统一使用modal-btn样式 */
+.restart-confirm-modal .restart-btn {
+    padding: 18px 35px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-align: center;
+    width: 100%;
+    min-height: 60px;
+    font-family: 'Arial Black', 'Arial', sans-serif;
+    background: linear-gradient(145deg, #45455F, #34344F) !important;
+    /* 强制使用暂停弹窗按钮背景 */
+    border: none !important;
+    /* 移除所有边框 */
+}
+
+.restart-confirm-modal .restart-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #E06C5D, #c55648) !important;
+    /* 强制使用暂停弹窗按钮悬停背景 */
+}
+
+/* 确保确认和取消按钮颜色一致 */
+.restart-confirm-modal .confirm-restart-btn,
+.restart-confirm-modal .cancel-restart-btn {
+    background: linear-gradient(145deg, #45455F, #34344F) !important;
+}
+
+.restart-confirm-modal .confirm-restart-btn:hover,
+.restart-confirm-modal .cancel-restart-btn:hover {
+    background: linear-gradient(145deg, #E06C5D, #c55648) !important;
+}

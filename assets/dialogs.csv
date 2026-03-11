@@ -1,0 +1,77 @@
+id,trigger_type,trigger_target,trigger_condition,delay_time,priority,content_type,dialog_text,character_name,character_emotion,icon,sound,next_dialog_id,auto_advance,show_time,condition_passenger,condition_seat_type,condition_near_passenger,condition_game_time,condition_group,chain_id,duration,skipable,position,left_character,right_character,speaking_side,reserved1,reserved2
+1,game_start,global,immediate,0,1,narrative,"欢迎来到鸟鸟版""这个座位可以座吗？""",系统提示,normal,,,2,FALSE,3,,,,,,,0,TRUE,bottom-center,,,,,
+2,game_start,global,immediate,0,1,narrative,请根据乘客的需求为他们安排合适的座位,系统提示,normal,,,3,FALSE,3,,,,,,,0,TRUE,bottom-center,,,,,
+3,game_start,global,immediate,0,1,narrative,目标是让尽可能多的乘客满意！,系统提示,normal,,,0,FALSE,4,,,,,,,0,TRUE,bottom-center,,,,,
+4,passenger_hover,passenger,immediate,0,3,bubble,这个位置看起来不错,乘客,normal,,,,FALSE,2.5,,,,,,,0,TRUE,bottom-center,,,,,
+5,condition_specific,passenger,window_seat,1,3,bubble,( ´▽.｀)临窗观景，佐以鱼脍，人生至福。,陈登,excited,assets/passengers/chendeng.png,,0,FALSE,5,陈登,window,,2,,,0,TRUE,bottom-center,,,,,
+8,all_passengers_seated,global,immediate,1,1,narrative,所有乘客已就座，准备发车！,系统提示,normal,,,0,FALSE,4,,,,,,,0,TRUE,bottom-center,,,,,
+9,condition_specific,passenger,timer,5,3,bubble,我会忍不住在车上吃鱼脍的~,陈登,excited,assets/passengers/chendeng.png,,0,TRUE,4,陈登,,,2,,,0,TRUE,bottom-center,,,,,
+10,condition_specific,passenger,window_seat,0.3,3,bubble,哇！靠窗的位置能看到风景！,诸葛瑾,happy,assets/passengers/zhugejin.png,,0,FALSE,3,诸葛瑾,window,,,,,0,TRUE,bottom-center,,,,,
+11,condition_specific,passenger,window_seat,0.3,3,bubble,兄长，这里视野很好！,诸葛诞,happy,assets/passengers/zhugedan.png,,0,FALSE,3,诸葛诞,window,,,,,0,TRUE,bottom-center,,,,,
+13,condition_specific,passenger,near_eating,0.3,3,bubble,旁边有人吃东西，味道好重...,张郃,angry,assets/passengers/zhanghe.png,,0,FALSE,3,张郃,,eating_passenger,,,0,TRUE,bottom-center,,,,,
+14,condition_specific,passenger,paired_together,0.5,3,bubble,和兄长坐在一起真好！,诸葛诞,happy,assets/passengers/zhugedan.png,,0,FALSE,3,诸葛诞,,诸葛瑾,,,0,TRUE,bottom-center,,,,,
+15,condition_specific,passenger,paired_together,0.5,3,bubble,阿诞，这里位置不错,诸葛瑾,happy,assets/passengers/zhugejin.png,,0,FALSE,3,诸葛瑾,,诸葛诞,,,0,TRUE,bottom-center,,,,,
+16,condition_specific,passenger,paired_together,0.5,3,bubble,文和，公交车很晃，你可要保护我呀。,郭嘉,happy,assets/passengers/guojia.png,,0,FALSE,3,郭嘉,,贾诩,,,0,TRUE,bottom-center,,,,,
+18,condition_specific,passenger,adjacent_check,0.5,3,bubble,哼，也罢，就坐这里吧,贾诩,normal,assets/passengers/jiaxu.png,,0,FALSE,3,贾诩,,郭嘉,,,0,TRUE,bottom-center,,,,,
+19,condition_specific,passenger,position_requirement,0.3,3,bubble,是想让我的腿伤更重些么？,贾诩,angry,assets/passengers/jiaxu.png,,0,FALSE,3,贾诩,standing,,,,,0,TRUE,bottom-center,,,,,
+20,condition_specific,passenger,window_seat,0.3,3,bubble,靠窗的位置适合思考,贾诩,normal,assets/passengers/jiaxu.png,,0,FALSE,3,贾诩,window,,,,,0,TRUE,bottom-center,,,,,
+21,condition_specific,passenger,quiet_area,0.3,3,bubble,这里比较安静，适合我,张郃,happy,assets/passengers/zhanghe.png,,0,FALSE,3,张郃,,,,,,0,TRUE,bottom-center,,,,,
+22,condition_specific,passenger,position_requirement,0.3,3,bubble,站位正合适，谢谢！,凌统,happy,assets/passengers/lingtong.png,,0,FALSE,3,凌统,standing,,,,,0,TRUE,bottom-center,,,,,
+23,condition_specific,passenger,position_requirement,0.3,3,bubble,我站着就行，座位留给有需要的人。,凌统,angry,assets/passengers/lingtong.png,,0,FALSE,3,凌统,seat,,,,,0,TRUE,bottom-center,,,,,
+24,condition_specific,global,paired_expected,0.5,3,bubble,文和，这个双人座正适合我们,郭嘉,impatient,assets/passengers/guojia.png,,0,FALSE,3,郭嘉,,,,,,0,TRUE,bottom-center,,,,,
+25,condition_specific,global,paired_apart,0.5,3,bubble,我要和小红淑女同坐,郭嘉,angry,assets/passengers/guojiaAngry.png,,0,FALSE,3,郭嘉,,贾诩,,,0,TRUE,bottom-center,,,,,
+26,condition_specific,global,paired_together,0.5,3,bubble,真巧啊文和，你要去哪呀？,郭嘉,happy,assets/passengers/guojia.png,,0,FALSE,3,郭嘉,,贾诩,,,0,TRUE,bottom-center,,,,,
+27,condition_specific,passenger,timer,2,3,bubble,期待和小红淑女同坐,郭嘉,excited,assets/passengers/guojia.png,,0,TRUE,4,郭嘉,,,2,,,0,TRUE,bottom-center,,,,,
+100,game_start,global,immediate,0.5,2,story,（摇着并不存在的扇子）哎呀，这不是文和吗？腿脚不便，也来挤这公交车？,郭嘉,normal,,,101,FALSE,3,,,,,,,0,TRUE,bottom-center,郭嘉,贾诩,left,,
+101,game_start,global,immediate,0.5,2,story,（拄着拐，冷笑）奉孝既然病骨支离，何不在家躺着，出来祸害旁人？,贾诩,normal,,,102,FALSE,3,,,,,,,0,TRUE,bottom-center,郭嘉,贾诩,right,,
+102,game_start,global,immediate,0.5,2,story,"此言差矣。同车即是有缘，说不定……这车上就有你我的""机缘""呢？",郭嘉,normal,,,0,FALSE,3,,,,,,,0,TRUE,bottom-center,郭嘉,贾诩,left,,
+
+
+; ========== 阿蝉气泡对话 ==========
+128,condition_specific,passenger,seat_assigned,0.3,3,bubble,有座位真好。,阿蝉,happy,assets/passengers/achan.png,,0,FALSE,3,阿蝉,seat,,,,,0,TRUE,bottom-center,,,,,
+129,condition_specific,passenger,position_requirement,0.3,3,bubble,站着也行，不累。,阿蝉,happy,assets/passengers/achan.png,,0,FALSE,3,阿蝉,standing,,,,,0,TRUE,bottom-center,,,,,
+130,condition_specific,passenger,window_seat,0.3,3,bubble,可以看到外面的人。,阿蝉,happy,assets/passengers/achan.png,,0,FALSE,3,阿蝉,window,,,,,0,TRUE,bottom-center,,,,,
+
+; ========== 诸葛瑾气泡对话（诸葛诞不在时）==========
+131,condition_specific,passenger,alone_check,0.3,3,bubble,阿诞今天怎么还没来？,诸葛瑾,worried,assets/passengers/zhugejin.png,,0,FALSE,3,诸葛瑾,,,,,0,TRUE,bottom-center,,,,,
+
+; ========== 张郃气泡对话（安静位置）==========
+132,condition_specific,passenger,quiet_area,0.3,3,bubble,这里安静，适合我,张郃,happy,assets/passengers/zhanghe.png,,0,FALSE,3,张郃,,,,,0,TRUE,bottom-center,,,,,
+
+; ========== 伍丹气泡对话 ==========
+133,condition_specific,passenger,seat_assigned,0.3,3,bubble,坐下啦坐下啦~~,伍丹,happy,assets/passengers/wudan.png,,0,FALSE,3,伍丹,seat,,,,,0,TRUE,bottom-center,,,,,
+
+; ========== 陈登与张郃故事对话（两人相邻时触发）==========
+134,condition_specific,global,adjacent_check,0.3,2,story,张将军，要不要尝尝鱼脍？,陈登,happy,assets/passengers/chendeng.png,,135,FALSE,3,陈登,,张郃,,,chain_chen_zhanghe,0,TRUE,bottom-center,陈登,张郃,left,,
+135,condition_specific,global,adjacent_check,0.3,2,story,（皱眉）不用了。,张郃,angry,assets/passengers/zhanghe.png,,136,FALSE,3,张郃,,陈登,,,chain_chen_zhanghe,0,TRUE,bottom-center,陈登,张郃,right,,
+136,condition_specific,global,adjacent_check,0.3,2,story,真的很好吃哦~,陈登,happy,assets/passengers/chendeng.png,,137,FALSE,3,陈登,,张郃,,,chain_chen_zhanghe,0,TRUE,bottom-center,陈登,张郃,left,,
+137,condition_specific,global,adjacent_check,0.3,2,story,……我忍。,张郃,angry,assets/passengers/zhanghe.png,,0,FALSE,3,张郃,,陈登,,,chain_chen_zhanghe,0,TRUE,bottom-center,陈登,张郃,right,,
+
+
+; ========== 张郃与伍丹对话（两人相邻时触发）==========
+103,condition_specific,global,adjacent_check,0,2,story,小张将军，我可以和你一起坐吗？,伍丹,happy,assets/passengers/wudan.png,,104,FALSE,3,伍丹,,张郃,,,chain_zhanghe_wudan,0,TRUE,bottom-center,伍丹,张郃,left,,
+104,condition_specific,global,adjacent_check,0,2,story,当然可以，请坐,张郃,happy,assets/passengers/zhanghe.png,,105,FALSE,3,张郃,,伍丹,,,chain_zhanghe_wudan,0,TRUE,bottom-center,伍丹,张郃,right,,
+105,condition_specific,global,adjacent_check,0,2,story,（吸吸鼻子）“好香……是小张将军身上的吗？”,伍丹,happy,assets/passengers/wudan.png,,106,FALSE,3,伍丹,,张郃,,,chain_zhanghe_wudan,0,TRUE,bottom-center,伍丹,张郃,left,,
+106,condition_specific,global,adjacent_check,0,2,story,（从发间摸出一朵干花）“是这个，我种的。”,张郃,happy,assets/passengers/zhanghe.png,,107,FALSE,3,张郃,,伍丹,,,chain_zhanghe_wudan,0,TRUE,bottom-center,伍丹,张郃,right,,
+107,condition_specific,global,adjacent_check,0,2,story,小张将军好厉害！,伍丹,happy,assets/passengers/wudan.png,,108,FALSE,3,伍丹,,张郃,,,chain_zhanghe_wudan,0,TRUE,bottom-center,伍丹,张郃,left,,
+108,condition_specific,global,adjacent_check,0,2,story,你喜欢的话……送你。,张郃,happy,assets/passengers/zhanghe.png,,109,FALSE,3,张郃,,伍丹,,,chain_zhanghe_wudan,0,TRUE,bottom-center,伍丹,张郃,right,,
+109,condition_specific,global,adjacent_check,0,2,story,谢谢小张将军，下次我分享我种的花给你,伍丹,happy,assets/passengers/wudan.png,,0,FALSE,3,伍丹,,张郃,,,chain_zhanghe_wudan,0,TRUE,bottom-center,伍丹,张郃,left,,
+
+; ========== 贾诩与凌统对话（两人都在站位时触发）==========
+110,condition_specific,global,group_condition,0.3,2,story,公交车上没有位置了吗？你坐我的轮椅吧？,凌统,normal,assets/passengers/lingtong.png,,111,FALSE,3,凌统,standing,,,"both_standing:贾诩,凌统",chain_jiaxu_lingtong,0,TRUE,bottom-center,凌统,贾诩,left,,
+111,condition_specific,global,group_condition,0.3,2,story,你似乎比我还少一条腿,贾诩,angry,assets/passengers/jiaxu.png,,112,FALSE,3,贾诩,standing,,,"both_standing:贾诩,凌统",chain_jiaxu_lingtong,0,TRUE,bottom-center,凌统,贾诩,right,,
+112,condition_specific,global,group_condition,0.3,2,story,没关系的，要不我帮你问问看有没有人让座？,凌统,worried,assets/passengers/lingtong.png,,113,FALSE,3,凌统,standing,,,"both_standing:贾诩,凌统",chain_jiaxu_lingtong,0,TRUE,bottom-center,凌统,贾诩,left,,
+113,condition_specific,global,group_condition,0.3,2,story,......,贾诩,silent,assets/passengers/jiaxu.png,,0,FALSE,3,贾诩,standing,,,"both_standing:贾诩,凌统",chain_jiaxu_lingtong,0,TRUE,bottom-center,凌统,贾诩,right,,
+
+; ========== 张郃与凌统对话（悬浮在凌统上时触发）==========
+114,passenger_hover,passenger,immediate,0.3,2,story,来吧，我来帮你推轮椅,张郃,happy,assets/passengers/zhanghe.png,,115,FALSE,3,凌统,,,,,chain_zhanghe_lingtong,0,TRUE,bottom-center,张郃,凌统,left,,
+115,passenger_hover,passenger,immediate,0.3,2,story,谢谢，我坐着轮椅，把我放到站位就好，不占座位,凌统,happy,assets/passengers/lingtong.png,,116,FALSE,3,凌统,,,,,chain_zhanghe_lingtong,0,TRUE,bottom-center,张郃,凌统,right,,
+116,passenger_hover,passenger,immediate,0.3,2,story,如果你需要帮助随时叫我,张郃,happy,assets/passengers/zhanghe.png,,117,FALSE,3,凌统,,,,,chain_zhanghe_lingtong,0,TRUE,bottom-center,张郃,凌统,left,,
+117,passenger_hover,passenger,immediate,0.3,2,story,谢谢小张将军，你人真好,凌统,happy,assets/passengers/lingtong.png,,0,FALSE,3,凌统,,,,,chain_zhanghe_lingtong,0,TRUE,bottom-center,张郃,凌统,right,,
+
+; ========== 诸葛瑾与诸葛诞兄弟对话（两人相邻时触发）==========
+118,condition_specific,global,adjacent_check,0.3,2,story,（从后排探出头，大力挥手）兄长兄长！这边这边！我给你占了好位置！,诸葛诞,happy,assets/passengers/zhugedan.png,,119,FALSE,3,诸葛诞,,诸葛瑾,0,,chain_zhuge_brothers,0,TRUE,bottom-center,诸葛瑾,诸葛诞,right,,
+119,condition_specific,global,adjacent_check,0.3,2,story,（瞬移过去，压低声音）……阿诞小声些。,诸葛瑾,worried,assets/passengers/zhugejin.png,,120,FALSE,3,诸葛瑾,,诸葛诞,0,,chain_zhuge_brothers,0,TRUE,bottom-center,诸葛瑾,诸葛诞,left,,
+120,condition_specific,global,adjacent_check,0.3,2,story,兄长今天去哪？,诸葛诞,happy,assets/passengers/zhugedan.png,,121,FALSE,3,诸葛诞,,诸葛瑾,0,,chain_zhuge_brothers,0,TRUE,bottom-center,诸葛瑾,诸葛诞,right,,
+121,condition_specific,global,adjacent_check,0.3,2,story,绣衣楼。,诸葛瑾,normal,assets/passengers/zhugejin.png,,122,FALSE,3,诸葛瑾,,诸葛诞,0,,chain_zhuge_brothers,0,TRUE,bottom-center,诸葛瑾,诸葛诞,left,,
+122,condition_specific,global,adjacent_check,0.3,2,story,好巧呀，我也去绣衣楼！,诸葛诞,happy,assets/passengers/zhugedan.png,,0,FALSE,3,诸葛诞,,诸葛瑾,0,,chain_zhuge_brothers,0,TRUE,bottom-center,诸葛瑾,诸葛诞,right,,

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鸟鸟版这个座位可以坐吗？</title>
+    <!-- 游戏主样式 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 对话系统样式 -->
+    <link rel="stylesheet" href="css/dialog-styles.css">
+    <!-- 响应式样式 -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body style="margin:0; padding:0; overflow:hidden; height:100vh; width:100vw; position:fixed; top:0; left:0;">
+    <!-- 暂停弹窗 -->
+    <div class="pause-modal" id="pause-modal" style="display: none;">
+        <div class="modal-content">
+            <h2>游戏已暂停</h2>
+            <div class="modal-buttons">
+                <button class="modal-btn continue-btn" id="continue-btn">
+                    继续游戏
+                </button>
+                <button id="restart-btn" class="modal-btn restart-btn">
+                    重新开始</button>
+                <button class="modal-btn home-btn" id="home-btn">
+                    主页
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 游戏主容器 -->
+    <div class="game-container" id="game-container">
+        <!-- 图1：背景图片 -->
+        <img src="assets/背景.png" alt="游戏背景" class="background-image">
+
+        <!-- 图2：公交车图片作为座位区域 -->
+        <div class="bus-image-container">
+            <img src="assets/gjc.png" alt="公交车内部" class="bus-image" id="bus-image">
+
+            <!-- 座位点击区域（覆盖在公交车图片上） -->
+            <div class="seat-overlay">
+                <!-- 根据图片，从右往左、从上往下排序，总共有16个座位 -->
+                <!-- 右侧：单人座区域（靠窗） -->
+                <div class="seat-area window-seats">
+                    <!-- 司机位（座位1） -->
+                    <div class="seat clickable window" data-seat-id="1" style="top: 25%; right: 7%;">
+                        <div class="seat-label"></div>
+                    </div>
+                    <!-- 单人座（座位2-4） -->
+                    <div class="seat clickable window" data-seat-id="2" style="top: 20%; right: 24%;">
+                        <div class="seat-label"></div>
+                    </div>
+                    <div class="seat clickable window" data-seat-id="3" style="top: 20%; right: 36%;">
+                        <div class="seat-label"></div>
+                    </div>
+                    <div class="seat clickable window" data-seat-id="4" style="top: 20%; right: 49%;">
+                        <div class="seat-label"></div>
+                    </div>
+                </div>
+
+                <!-- 左侧：双人座区域 -->
+                <div class="seat-area double-seats">
+                    <!-- 第1排双人座（座位5-6） -->
+                    <div class="double-seat-row">
+                        <div class="seat clickable window" data-seat-id="5" data-window="true"
+                            style="top: 20%; right: 65%;">
+                            <div class="seat-label"></div>
+                        </div>
+                        <div class="seat clickable aisle" data-seat-id="6" data-window="false"
+                            style="top: 31%; right: 65%;">
+                            <div class=" seat-label"></div>
+                        </div>
+                    </div>
+
+                    <!-- 第2排双人座（座位7-8） -->
+                    <div class="double-seat-row">
+                        <div class="seat clickable aisle" data-seat-id="7" data-window="false"
+                            style="top: 54%; right: 65%;">
+                            <div class="seat-label"></div>
+                        </div>
+                        <div class="seat clickable window" data-seat-id="8" data-window="true"
+                            style="top: 66%; right: 65%;">
+                            <div class=" seat-label"></div>
+                        </div>
+                    </div>
+
+                    <!-- 第3排双人座（座位9-10） -->
+                    <div class="double-seat-row">
+                        <div class="seat clickable window" data-seat-id="9" data-window="true"
+                            style="top: 20%; right: 78%;">
+                            <div class="seat-label"></div>
+                        </div>
+                        <div class="seat clickable aisle" data-seat-id="10" data-window="false"
+                            style="top: 31%; right: 78%;">
+                            <div class=" seat-label"></div>
+                        </div>
+                    </div>
+
+                    <!-- 第4排双人座（座位11-12） -->
+                    <div class="double-seat-row">
+                        <div class="seat clickable aisle" data-seat-id="11" data-window="false"
+                            style="top: 54%; right: 78%;">
+                            <div class="seat-label"></div>
+                        </div>
+                        <div class="seat clickable window" data-seat-id="12" data-window="true"
+                            style="top: 66%; right: 78%;">
+                            <div class="seat-label"></div>
+                        </div>
+                    </div>
+
+                    <!-- 第5排双人座（座位13-14） -->
+                    <div class="double-seat-row">
+                        <div class="seat clickable window" data-seat-id="13" data-window="true"
+                            style="top: 20%; right: 91%;">
+                            <div class="seat-label"></div>
+                        </div>
+                        <div class="seat clickable aisle" data-seat-id="14" data-window="false"
+                            style="top: 31%; right: 91%;">
+                            <div class=" seat-label"></div>
+                        </div>
+                    </div>
+
+                    <!-- 第6排双人座（座位15-16） -->
+                    <div class="double-seat-row">
+                        <div class="seat clickable aisle" data-seat-id="15" data-window="false"
+                            style="top: 54%; right: 91%;">
+                            <div class="seat-label"></div>
+                        </div>
+                        <div class="seat clickable window" data-seat-id="16" data-window="true"
+                            style="top: 66%; right: 91%;">
+                            <div class="seat-label"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 站位区域 -->
+                <div class="standing-area">
+                    <div class="standing-spot" data-seat-id="17" style="top: 59%; right:26%;">
+                        <div class="seat-label"></div>
+                    </div>
+                    <div class="standing-spot" data-seat-id="18" style="top: 59%; right: 38%;">
+                        <div class="seat-label"></div>
+                    </div>
+                    <div class="standing-spot" data-seat-id="19" style="top: 59%; right: 50%;">
+                        <div class="seat-label"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 已放置的乘客显示 -->
+            <div class="passenger-display" id="passenger-display"></div>
+        </div>
+    </div>
+
+    <!-- 左上角控制区 -->
+    <div class="game-controls">
+        <button class="pause-button" id="pause-button">
+            <i class="fas fa-pause"></i>
+        </button>
+    </div>
+
+    <!-- 等车区 - 固定在右下角 -->
+    <div id="waiting-area" class="waiting-area">
+        <!-- 乘客将通过JavaScript动态生成 -->
+    </div>
+
+    <!-- 右上角控制区 -->
+    <div class="bottom-right-controls" id="bottom-right-controls">
+        <!-- 满意度统计 -->
+        <div class="satisfaction-display" id="satisfaction-display">
+            <i class="fas fa-star"></i> <!-- 星星图标 -->
+            <span id="satisfaction-count">0</span>/<span id="total-passengers">9</span>
+        </div>
+
+        <!-- 发车按钮 -->
+        <button class="depart-button" id="depart-button">
+            <i class="fas fa-bus"></i> 发车
+        </button>
+    </div>
+
+    <!-- 需求卡提示框 - 左下角 -->
+    <div class="requirement-card" id="requirement-card">
+        <!-- 卡片内容容器 -->
+        <div class="card-content">
+            <!-- 名字区域（上部） -->
+            <div class="requirement-name-section">
+                <h2 class="requirement-name" id="requirement-name">未选择乘客</h2>
+            </div>
+
+            <!-- 要求区域（下部） -->
+            <div class="requirement-content-section">
+                <p class="requirement-content" id="requirement-content">请点击选择一位乘客</p>
+            </div>
+        </div>
+    </div>
+    <!-- 需求卡提示框结束 -->
+
+    <!-- 拖拽中的乘客 -->
+    <div class="dragging-passenger" id="dragging-passenger"></div>
+
+
+    <!-- ========== 【双角色对话结构】 ========== -->
+    <div class="story-overlay" id="story-overlay">
+        <div class="story-container">
+            <!-- 左侧角色（固定位置） -->
+            <div class="story-character left-character" id="left-character">
+                <img class="character-avatar" id="left-character-avatar" src="" alt="">
+                <div class="character-name" id="left-character-name">左侧角色</div>
+            </div>
+
+            <!-- 对话气泡（根据说话者改变位置） -->
+            <div class="story-bubble" id="story-bubble">
+                <div class="story-text" id="story-text">对话内容...</div>
+                <div class="story-next-hint">
+                    <i class="fas fa-chevron-right"></i> 点击继续
+                </div>
+            </div>
+
+            <!-- 右侧角色（固定位置） -->
+            <div class="story-character right-character" id="right-character">
+                <img class="character-avatar" id="right-character-avatar" src="" alt="">
+                <div class="character-name" id="right-character-name">右侧角色</div>
+            </div>
+        </div>
+    </div>
+    <!-- ========== 【结构结束】 ========== -->
+
+    <!-- 2. Guide提示 -->
+    <div class="guide-overlay" id="guide-overlay">
+        <div class="guide-container" id="guide-container">
+            <div class="guide-icon">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+            <div class="guide-text" id="guide-text"></div>
+            <button class="guide-close-btn" id="guide-close-btn" title="关闭提示">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <!-- ========== 【新增结束】 ========== -->
+
+    <!-- JavaScript文件 -->
+    <!-- 1. 首先加载工具库 -->
+    <script src="config/gameConfig.js"></script>
+
+    <!-- 2. 加载 CSVParser（如果存在的话） -->
+    <script src="js/utils/CSVParser.js"></script>
+
+    <!-- 3. 加载 ConfigManager -->
+    <script src="js/game/ConfigManager.js"></script>
+
+    <!-- 4. 加载游戏核心类 -->
+    <script src="js/game/BusSeatGame.js"></script>
+
+    <!-- 5. 加载对话系统 -->
+    <script src="js/game/DialogSystem.js"></script>
+
+    <!-- 6. 最后加载主逻辑 -->
+    <script src="js/main.js"></script>
+
+</html>

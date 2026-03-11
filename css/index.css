@@ -1,0 +1,82 @@
+/* =================== 主页样式 =================== */
+
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* 页面背景和布局 */
+body {
+    background: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 按钮容器样式 */
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    bottom: 30%;
+    transform: translateY(50%);
+}
+
+/* 基础按钮样式 */
+.game-btn {
+    background: #2C3E50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 按钮悬停效果 */
+.game-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 按钮点击效果 */
+.game-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 开始游戏按钮特殊样式 */
+.btn-start {
+    background: #E06C5D;
+}
+
+.btn-start:hover {
+    background: #8f3b2f;
+}
+
+/* 设置按钮特殊样式 */
+.btn-settings {
+    background: #8c4aa7;
+}
+
+.btn-settings:hover {
+    background: #5f406c;
+}
+
+/* 作者按钮特殊样式 */
+.btn-author {
+    background: #66a882;
+}
+
+.btn-author:hover {
+    background: #1f3b2b;
+}

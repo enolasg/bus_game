@@ -1,0 +1,1522 @@
+/* =================== 对话系统样式 =================== */
+
+/* 强制剧情对话框样式 */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.dialog-container {
+    background: linear-gradient(145deg, #FFE4E1, #FFDAB9);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 700px;
+    width: 85%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    border: 4px solid #E06C5D;
+    text-align: center;
+}
+
+/* 角色名称样式 */
+.dialog-character-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #E06C5D;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+}
+
+/* 对话内容样式 */
+.dialog-content {
+    font-size: 24px;
+    line-height: 1.8;
+    color: #333;
+    margin: 30px 0;
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 跳过按钮样式 */
+.dialog-skip-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(145deg, #E06C5D, #c55648);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 8px rgba(224, 108, 93, 0.3);
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+}
+
+.dialog-skip-btn:hover {
+    background: linear-gradient(145deg, #8f3b2f, #7a3228);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(224, 108, 93, 0.4);
+}
+
+.dialog-skip-btn:active {
+    transform: scale(0.98);
+}
+
+/* 下一步提示样式 */
+.dialog-next-hint {
+    text-align: center;
+    color: #E06C5D;
+    font-size: 18px;
+    margin-top: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    animation: pulseHint 1.5s infinite;
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+}
+
+@keyframes pulseHint {
+    0% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+}
+
+/* =================== 气泡头像隐藏 =================== */
+
+/* 强制隐藏所有气泡中的头像图标 */
+.dialog-bubble .bubble-icon,
+.condition-bubble .bubble-icon,
+.natural-chat-bubble .bubble-icon,
+.bubble-icon {
+    display: none !important;
+}
+
+/* 调整气泡内边距，移除头像空间 */
+.dialog-bubble,
+.condition-bubble,
+.natural-chat-bubble {
+    padding: 8px 16px !important;
+}
+
+/* 气泡文本样式调整 */
+.bubble-text {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+    width: 100%;
+}
+
+/* =================== 对话气泡框样式 =================== */
+
+/* 气泡对话样式 - 横向窄长 */
+.dialog-bubble {
+    position: absolute;
+    bottom: calc(100% + 10px) !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+
+    /* 尺寸 - 横向窄长 */
+    min-width: 60px;
+    /* 最小宽度 */
+    max-width: 300px;
+    /* 最大宽度 */
+    height: auto;
+    /* 高度自适应 */
+
+    /* 内边距 - 横向窄长 */
+    padding: 6px 16px;
+    /* 上下小，左右大 */
+
+    /* 背景颜色 */
+    background: linear-gradient(135deg, #45455F 0%, #34344F 100%) !important;
+    color: white;
+
+    /* 边框 */
+    border-radius: 20px 20px 20px 4px;
+    /* 左上角圆角大，左下角小 */
+    border: 2px solid #E06C5D;
+
+    /* 文字 */
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 500;
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+    text-align: center;
+
+    /* 布局 */
+    white-space: nowrap;
+    /* 单行显示 */
+    overflow: hidden;
+    /* 超出隐藏 */
+    text-overflow: ellipsis;
+    /* 超出显示省略号 */
+
+    /* 其他 */
+    z-index: 1001;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+    /* 显示方式 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 多行文本时的样式（当文字很长时自动换行） */
+.dialog-bubble.multiline {
+    white-space: normal;
+    /* 允许多行 */
+    text-overflow: clip;
+    /* 取消省略号 */
+    word-wrap: break-word;
+    /* 允许单词内换行 */
+    min-width: 120px;
+    /* 多行时最小宽度大一些 */
+    padding: 8px 12px;
+    /* 多行时内边距调整 */
+}
+
+/* 气泡小三角 - 调整位置和样式 */
+.dialog-bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    /* 小三角靠左 */
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #E06C5D;
+}
+
+
+
+/* 气泡小三角（多行时居中） */
+.dialog-bubble.multiline::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ✅ 正确的气泡图标样式 */
+.bubble-icon {
+    display: block !important;
+    /* ✅ 改为显示 */
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 8px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* ======================不同情绪的气泡样式 *=================*/
+.dialog-bubble[data-emotion="happy"] {
+    /*开心 - 淡绿色 */
+    background: rgba(69, 69, 95, 0.95) !important;
+    border-color: rgba(113, 210, 146, 0.7) !important;
+    border-width: 2px;
+    color: #ffffff;
+    /* 深绿色文字 */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.dialog-bubble[data-emotion="happy"]::after {
+    border-top-color: #b3cebe;
+}
+
+.dialog-bubble[data-emotion="angry"] {
+    /* 生气 - 淡粉色 */
+    background: rgba(69, 69, 95, 0.95) !important;
+    border-color: rgba(255, 137, 157, 0.7) !important;
+    border-width: 2px;
+    color: #ffffff;
+    /* 深粉色文字 */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.dialog-bubble[data-emotion="angry"]::after {
+    border-top-color: #c0392b;
+}
+
+.dialog-bubble[data-emotion="impatient"] {
+    /* 不耐烦 - 淡黄色 */
+    background: rgba(69, 69, 95, 0.95) !important;
+    border-color: rgba(255, 220, 115, 0.7) !important;
+    border-width: 2px;
+    color: #ffffff;
+    /* 深黄色文字 */
+}
+
+.dialog-bubble[data-emotion="impatient"]::after {
+    border-top-color: #d35400;
+}
+
+.dialog-bubble[data-emotion="normal"] {
+    /* 正常 - 淡蓝色 */
+    background: rgba(69, 69, 95, 0.95);
+    border-color: rgba(113, 182, 255, 0.7) !important;
+    border-width: 2px;
+    color: #ffffff;
+    /* 深蓝色文字 */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* 在 normal 样式后面添加 excited 样式 */
+.dialog-bubble[data-emotion="excited"] {
+    /* 兴奋 - 亮橙色 */
+    background: rgba(69, 69, 95, 0.95) !important;
+    border-color: rgba(255, 193, 7, 0.8) !important;
+    /* 亮金色 */
+    border-width: 2px;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+    /* 添加金色光晕 */
+}
+
+.dialog-bubble[data-emotion="excited"]::after {
+    border-top-color: #FFC107;
+    /* 三角颜色与边框一致 */
+}
+
+
+/* ==============情绪气泡颜色结束============ */
+
+
+
+
+
+
+
+/* 工具提示样式 */
+.dialog-tooltip {
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(69, 69, 95, 0.95);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 1002;
+    pointer-events: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #E06C5D;
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+    white-space: nowrap;
+}
+
+.dialog-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #E06C5D;
+}
+
+/* 等待区气泡特殊样式 - 改为显示在上方 */
+#waiting-area .dialog-bubble {
+    bottom: calc(100% + 10px) !important;
+    /* 显示在上方 */
+    top: auto;
+    /* 重置top */
+    border-radius: 20px 20px 20px 4px;
+    /* 恢复默认圆角 */
+}
+
+#waiting-area .dialog-bubble::after {
+    top: 100%;
+    /* 三角在底部 */
+    bottom: auto;
+    border-top: 8px solid #E06C5D;
+    /* 恢复默认三角 */
+    border-bottom: none;
+    left: 50%;
+    /* 居中 */
+    transform: translateX(-50%);
+}
+
+/* 座位上气泡特殊样式 */
+.passenger-on-seat .dialog-bubble {
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.passenger-on-seat .dialog-bubble::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 站立位气泡特殊样式 */
+.standing-spot .dialog-bubble {
+    bottom: calc(100% + 8px);
+}
+
+.standing-spot .dialog-bubble::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 等待区乘客气泡样式 */
+.waiting-passenger .dialog-bubble {
+    bottom: calc(100% + 8px);
+}
+
+.waiting-passenger .dialog-bubble::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 动画关键帧 */
+@keyframes dialogFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes dialogFadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes dialogSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bubbleAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes bubbleDisappear {
+    from {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes tooltipFadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* 为特定元素添加动画类 */
+.dialog-overlay {
+    animation: dialogFadeIn 0.3s ease;
+}
+
+.dialog-overlay.fade-out {
+    animation: dialogFadeOut 0.3s ease;
+}
+
+.dialog-container {
+    animation: dialogSlideUp 0.5s ease;
+}
+
+.dialog-bubble {
+    animation: bubbleAppear 0.3s ease;
+}
+
+.dialog-bubble.fade-out {
+    animation: bubbleDisappear 0.3s ease;
+}
+
+.dialog-tooltip {
+    animation: tooltipFadeIn 0.2s ease;
+}
+
+.dialog-tooltip.fade-out {
+    animation: tooltipFadeOut 0.2s ease;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .dialog-container {
+        padding: 30px 20px;
+        width: 90%;
+        max-width: 90%;
+    }
+
+    .dialog-character-name {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .dialog-content {
+        font-size: 18px;
+        margin: 20px 0;
+        min-height: 60px;
+    }
+
+    .dialog-skip-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .dialog-next-hint {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .dialog-bubble {
+        max-width: 200px;
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .bubble-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .dialog-tooltip {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dialog-container {
+        padding: 20px 15px;
+        width: 95%;
+    }
+
+    .dialog-character-name {
+        font-size: 20px;
+    }
+
+    .dialog-content {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .dialog-skip-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .dialog-next-hint {
+        font-size: 14px;
+    }
+
+    .dialog-bubble {
+        max-width: 180px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .bubble-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* 对话系统加载状态 */
+.dialog-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+}
+
+.dialog-loading::after {
+    content: '加载对话系统中...';
+    animation: loadingPulse 1.5s infinite;
+}
+
+@keyframes loadingPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* 对话历史记录样式（可选功能） */
+.dialog-history {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 300px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 12px;
+    z-index: 9998;
+    display: none;
+}
+
+.dialog-history.active {
+    display: block;
+}
+
+.dialog-history-item {
+    margin-bottom: 5px;
+    padding: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dialog-history-name {
+    color: #E06C5D;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.dialog-history-text {
+    color: #ddd;
+}
+
+/* 对话音效提示 */
+.sound-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(69, 69, 95, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 9997;
+    display: none;
+    align-items: center;
+    gap: 8px;
+}
+
+.sound-indicator.active {
+    display: flex;
+    animation: soundIndicatorFade 3s ease forwards;
+}
+
+@keyframes soundIndicatorFade {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* =================== 新添加：区分两种气泡样式 =================== */
+
+/* 自然聊天气泡（来自乘客CSV） */
+.natural-chat-bubble {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* 尺寸 */
+    min-width: 80px;
+    max-width: 250px;
+    height: auto;
+
+    /* 内边距 */
+    padding: 8px 14px;
+
+    /* 背景颜色 - 与条件对话区分 */
+    background: linear-gradient(135deg, #5D4037 0%, #3E2723 100%) !important;
+    color: #FFCCBC;
+
+    /* 边框 */
+    border-radius: 15px 15px 15px 4px;
+    border: 2px solid #8D6E63 !important;
+
+    /* 文字 */
+    font-size: 13px !important;
+    line-height: 1.4;
+    font-weight: normal;
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+    text-align: center;
+
+    /* 布局 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /* 其他 */
+    z-index: 999 !important;
+    /* 低于条件对话 */
+    pointer-events: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+
+    /* 显示方式 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 自然聊天气泡小三角 */
+.natural-chat-bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #8D6E63;
+}
+
+/* 多行自然聊天气泡 */
+.natural-chat-bubble.multiline {
+    white-space: normal;
+    text-overflow: clip;
+    word-wrap: break-word;
+    min-width: 100px;
+    padding: 6px 10px;
+}
+
+
+
+
+/* 条件对话气泡 - 统一为普通气泡的黑色背景 */
+.condition-bubble {
+    background: linear-gradient(135deg, #45455F 0%, #34344F 100%) !important;
+    border-color: #42A5F5 !important;
+    z-index: 1001 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 4px 15px rgba(21, 101, 192, 0.4);
+    border-width: 2px;
+}
+
+.condition-bubble::after {
+    border-top-color: #42A5F5 !important;
+}
+
+/* 不同情绪 - 只改变边框颜色，背景统一为黑色 */
+.condition-bubble[data-emotion="happy"] {
+    background: linear-gradient(135deg, #45455F 0%, #34344F 100%) !important;
+    border-color: #2ecc71 !important;
+}
+
+.condition-bubble[data-emotion="angry"] {
+    background: linear-gradient(135deg, #45455F 0%, #34344F 100%) !important;
+    border-color: #e74c3c !important;
+}
+
+.condition-bubble[data-emotion="excited"] {
+    background: linear-gradient(135deg, #45455F 0%, #34344F 100%) !important;
+    border-color: #FFB74D !important;
+}
+
+.condition-bubble[data-emotion="impatient"] {
+    background: linear-gradient(135deg, #45455F 0%, #34344F 100%) !important;
+    border-color: #f39c12 !important;
+}
+
+.condition-bubble[data-emotion="normal"] {
+    background: linear-gradient(135deg, #45455F 0%, #34344F 100%) !important;
+    border-color: #42A5F5 !important;
+}
+
+
+
+
+
+
+
+/* 默认气泡样式（通用满意/不满意） */
+.dialog-bubble:not(.condition-bubble):not(.natural-chat-bubble) {
+    z-index: 1000;
+    /* 中间优先级 */
+    background: linear-gradient(135deg, #4A6572 0%, #344955 100%);
+}
+
+/* 气泡动画 - 确保所有气泡都有动画 */
+.dialog-bubble,
+.natural-chat-bubble,
+.condition-bubble {
+    animation: bubbleAppear 0.3s ease !important;
+}
+
+.dialog-bubble.fade-out,
+.natural-chat-bubble.fade-out,
+.condition-bubble.fade-out {
+    animation: bubbleDisappear 0.3s ease !important;
+}
+
+/* 调整不同位置的气泡优先级 */
+.passenger-on-seat .condition-bubble {
+    z-index: 1001 !important;
+}
+
+.passenger-on-seat .dialog-bubble:not(.condition-bubble) {
+    z-index: 1000 !important;
+}
+
+.passenger-on-seat .natural-chat-bubble {
+    z-index: 999 !important;
+}
+
+/* 为乘客图标上的气泡添加偏移，避免重叠 */
+.passenger-on-seat[data-passenger-id] .dialog-bubble,
+.passenger-on-seat[data-passenger-id] .natural-chat-bubble,
+.passenger-on-seat[data-passenger-id] .condition-bubble {
+    bottom: calc(100% + 15px);
+    /* 增加间距避免重叠 */
+}
+
+/* 气泡图标显示调整 */
+.condition-bubble .bubble-icon {
+    display: block !important;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* =================== 【新增】Story右下角角色对话样式 =================== */
+
+/* 故事对话样式 */
+#story-overlay {
+    position: fixed;
+    top: 70%;
+    left: 20%;
+    width: 100%;
+    height: 80%;
+    z-index: 9998;
+    /* 低于弹窗但高于游戏界面 */
+    display: none;
+    /* 默认隐藏 */
+    /* 移除 pointer-events: none; 这样点击会被捕获 */
+}
+
+/* 故事对话内容区域 - 在左侧 */
+.story-content-area {
+    position: absolute;
+    left: 20px;
+    bottom: 120px;
+    /* 在需求卡上方 */
+    width: 400px;
+    /* 稍微宽一点 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(0, 0, 0, 0.7);
+    /* 半透明背景 */
+    border-radius: 15px;
+    padding: 15px;
+    border: 2px solid #E06C5D;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* 固定角色位置 - 并排显示 */
+.story-characters-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* 左侧角色 */
+.story-character.left-character {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+
+/* 右侧角色 */
+.story-character.right-character {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+
+/* 角色头像 */
+.character-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+/* 活跃角色高亮 */
+.story-character.active .character-avatar {
+    border-color: #E06C5D;
+    box-shadow: 0 0 15px rgba(224, 108, 93, 0.8);
+}
+
+/* 角色名字 */
+.character-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px 12px;
+    border-radius: 12px;
+    width: 100%;
+}
+
+/* =================== 【双角色对话样式 - 修改版】 =================== */
+
+/* 容器：固定宽度，确保头像位置不变 */
+.story-overlay {
+    position: fixed;
+    bottom: 5%;
+    left: 10%;
+    transform: translateX(-50%);
+    z-index: 10005;
+    display: none;
+    width: 400px;
+    /* ✅ 固定宽度，确保头像位置不变 */
+    max-width: 500px;
+    min-width: 200px;
+    /* ✅ 最小宽度 */
+    pointer-events: auto;
+}
+
+/* 布局：固定宽度布局，防止头像移动 */
+.story-container {
+    display: flex;
+    align-items: flex-end;
+    /* ✅ 底部对齐，防止头像上下移动 */
+    justify-content: space-between;
+    height: 200px;
+    position: relative;
+    width: 100%;
+}
+
+/* 左侧角色 - 固定位置 */
+.left-character {
+    order: 1;
+    width: 80px;
+    /* ✅ 固定宽度 */
+    flex-shrink: 0;
+    /* ✅ 关键：防止收缩 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: 0;
+}
+
+/* 右侧角色 - 固定位置 */
+.right-character {
+    order: 3;
+    width: 80px;
+    /* ✅ 固定宽度 */
+    flex-shrink: 0;
+    /* ✅ 关键：防止收缩 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    right: 0;
+}
+
+/* 角色头像 - 固定大小 */
+.character-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #666;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: #f0f0f0;
+    display: block;
+}
+
+/* 角色名字 */
+.character-name {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 40px;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ========== 角色高亮状态 ========== */
+
+/* 当前说话的角色 - 高亮 */
+.story-character.active .character-avatar {
+    border-color: #42A5F5 !important;
+    border-width: 4px !important;
+    transform: scale(1.15);
+    box-shadow: 0 4px 15px rgba(66, 165, 245, 0.4);
+}
+
+.story-character.active .character-name {
+    background: #42A5F5 !important;
+    color: white !important;
+    transform: scale(1.05);
+}
+
+/* 非当前说话的角色 - 变暗 */
+.story-character:not(.active) .character-avatar {
+    filter: grayscale(40%);
+    opacity: 0.7;
+    border-color: #888;
+}
+
+.story-character:not(.active) .character-name {
+    background: rgba(0, 0, 0, 0.4);
+    color: #aaa;
+}
+
+/* ========== 对话气泡样式 - 固定宽度，自适应高度 ========== */
+
+.story-bubble {
+    order: 2;
+    background: linear-gradient(135deg, #4A6572, #344955);
+    border: 2px solid #E06C5D;
+    border-radius: 15px;
+    padding: 15px 20px;
+
+    /* ✅ 关键：固定宽度，自适应高度 */
+    width: 400px;
+    /* ✅ 固定宽度 */
+    min-width: 450px;
+    max-width: 450px;
+
+    min-height: 100px;
+    /* ✅ 最小高度 */
+    max-height: 250px;
+    /* ✅ 最大高度限制 */
+
+    color: white;
+    font-size: 18px;
+    line-height: 1.4;
+    /* ✅ 减少行高，防止太高 */
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+    z-index: 10006;
+    pointer-events: auto;
+
+    /* ✅ 关键：固定大小，不伸缩 */
+    flex: 0 0 auto;
+
+    /* ✅ 内容多时可滚动 */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 气泡文字 */
+.story-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-align: left;
+    width: 100%;
+    padding: 5px;
+    flex: 1;
+
+    /* ✅ 限制文本区域最大高度 */
+    max-height: 180px;
+    overflow-y: hidden
+}
+
+/* 点击继续提示 - 放在文本框右下角 */
+.story-next-hint {
+    /* ✅ 改为绝对定位 */
+    position: absolute;
+    bottom: 8px;
+    /* 距离底部距离 */
+    right: 12px;
+    /* 距离右侧距离 */
+
+    /* 保持原有样式 */
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    /* 可以稍微小一点 */
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+    animation: pulse 1.5s infinite;
+    opacity: 0.8;
+
+    /* 移除不需要的属性 */
+    margin-top: 0;
+    text-align: right;
+    /* 右对齐 */
+
+    /* 确保在气泡上方 */
+    z-index: 1;
+
+    /* 添加一些样式增强 */
+    padding: 2px 6px;
+
+    border-radius: 4px;
+}
+
+
+
+/* 确保气泡容器有相对定位，这样绝对定位的提示才能正确放置 */
+.story-bubble {
+    position: relative;
+    /* ✅ 确保这是relative定位 */
+    /* 其他样式保持不变 */
+}
+
+/* 调整脉冲动画 */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: translateX(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-2px);
+        /* 添加微小的水平移动 */
+    }
+}
+
+/* ========== 气泡箭头 - 完善版 ========== */
+
+/* 移除所有默认箭头 */
+.story-bubble::after,
+.story-bubble::before {
+    display: none;
+}
+
+/* 左侧角色说话 - 气泡在左侧，箭头指向左侧头像 */
+.story-bubble.arrow-left {
+    /* ✅ 气泡靠左 */
+    order: 1;
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 20px;
+    /* ✅ 向下偏移，避免箭头挡住头像 */
+}
+
+/* 右侧角色说话 - 气泡在右侧，箭头指向右侧头像 */
+.story-bubble.arrow-right {
+    /* ✅ 气泡靠右 */
+    order: 3;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 20px;
+    /* ✅ 向下偏移，避免箭头挡住头像 */
+}
+
+/* 箭头基础样式 */
+.story-bubble::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 10007;
+    display: block !important;
+}
+
+/* 左侧箭头：从气泡指向左侧头像 */
+.story-bubble.arrow-left::before {
+    left: -15px;
+    /* ✅ 调整箭头位置 */
+    top: 40%;
+    /* ✅ 箭头在气泡侧面的中间偏上位置 */
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 15px solid #E06C5D;
+}
+
+/* 右侧箭头：从气泡指向右侧头像 */
+.story-bubble.arrow-right::before {
+    right: -15px;
+    /* ✅ 调整箭头位置 */
+    top: 40%;
+    /* ✅ 箭头在气泡侧面的中间偏上位置 */
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 15px solid #E06C5D;
+}
+
+/* ========== 布局调整：模拟你的示意图 ========== */
+
+/* 当左侧角色说话时 */
+.story-bubble.arrow-left {
+    /* 左侧气泡向左偏移 */
+    transform: translateX(-20px);
+}
+
+/* 当右侧角色说话时 */
+.story-bubble.arrow-right {
+    /* 右侧气泡向右偏移 */
+    transform: translateX(20px);
+}
+
+/* 添加角色说话时的动画效果 */
+@keyframes speakPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.story-character.active .character-avatar {
+    animation: speakPulse 2s infinite;
+}
+
+
+/* ========== 响应式设计 ========== */
+@media (max-width: 768px) {
+    .story-overlay {
+        width: 95%;
+        min-width: auto;
+        max-width: 95%;
+        bottom: 30px;
+    }
+
+    .story-container {
+        height: 180px;
+    }
+
+    .story-bubble {
+        width: 400px;
+        min-width: 400px;
+        max-width: 400px;
+        padding: 15px 20px;
+        font-size: 18px;
+        margin: 0 15px;
+        max-height: 180px;
+    }
+
+    .character-avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .left-character,
+    .right-character {
+        width: 80px;
+    }
+
+    .story-bubble.arrow-left::before {
+        left: -15px;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-right: 15px solid #E06C5D;
+    }
+
+    .story-bubble.arrow-right::before {
+        right: -15px;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 15px solid #E06C5D;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-overlay {
+        width: 98%;
+        bottom: 20px;
+    }
+
+    .story-container {
+        height: 150px;
+    }
+
+    .story-bubble {
+        width: 280px;
+        min-width: 280px;
+        max-width: 280px;
+        padding: 12px 16px;
+        font-size: 16px;
+        margin: 0 10px;
+        max-height: 150px;
+    }
+
+    .character-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .left-character,
+    .right-character {
+        width: 70px;
+    }
+
+    .story-bubble.arrow-left::before {
+        left: -12px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 12px solid #E06C5D;
+    }
+
+    .story-bubble.arrow-right::before {
+        right: -12px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 12px solid #E06C5D;
+    }
+
+    .character-name {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+
+    .story-next-hint {
+        font-size: 12px;
+    }
+}
+
+/* 脉冲动画 */
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.story-overlay {
+    animation: dialogFadeIn 0.3s ease;
+}
+
+@keyframes dialogFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =================== 【新增】Guide提示样式 =================== */
+.guide-overlay {
+    position: fixed;
+    z-index: 10004;
+    display: none;
+}
+
+.guide-container {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    border-radius: 15px;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 2px solid #d35400;
+    max-width: 400px;
+    font-family: 'Microsoft YaHei', 'Arial', sans-serif;
+}
+
+/* 提示位置类 */
+.guide-container.top-center {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.guide-container.top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.guide-container.bottom-center {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.guide-container.bottom-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.guide-container.center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.guide-icon {
+    font-size: 28px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.guide-text {
+    font-size: 18px;
+    color: white;
+    flex: 1;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.guide-close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+}
+
+.guide-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}

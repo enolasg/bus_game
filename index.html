@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公交车座位安排游戏</title>
+    <!-- 主页专用样式 -->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="buttons-container">
+        <button class="game-btn btn-start" id="start-game">开始游戏</button>
+        <button class="game-btn btn-settings" id="settings-btn">设置</button>
+        <button class="game-btn btn-author" id="author-btn">作者</button>
+    </div>
+
+    <script>
+        // 开始游戏按钮点击事件 - 跳转到游戏页面
+        document.getElementById('start-game').addEventListener('click', function () {
+            window.location.href = 'bus-game.html';
+        });
+
+        // 设置按钮点击事件
+        document.getElementById('settings-btn').addEventListener('click', function () {
+            alert('游戏设置：无\n作者寄语： 不好意思，我还没做，为了做出这个没有bug的已经燃尽了');
+        });
+
+        // 作者按钮点击事件
+        document.getElementById('author-btn').addEventListener('click', function () {
+            alert('游戏开发者信息\n\n版本：1.0.0\n开发者：山谷\n小红书：爱吃饭|2635091193');
+        });
+    </script>
+</body>
+
+</html>

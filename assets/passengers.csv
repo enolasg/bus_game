@@ -1,0 +1,10 @@
+id,name,preferences,description,icon,angryIcon,pairedWith
+1,陈登,"吃东西","我会忍不住在车上吃鱼脍的~",assets/passengers/chendeng.png,assets/passengers/chendengAngry.png,
+2,诸葛瑾,"要求同伴;靠窗","我要和阿诞一起坐，还要靠窗",assets/passengers/zhugejin.png,assets/passengers/zhugejinAngry.png,3
+3,诸葛诞,"要求同伴;靠过道","我要和兄长一起坐，还要靠过道",assets/passengers/zhugedan.png,assets/passengers/zhugedanAngry.png,2
+4,张郃,"不喜欢味道","我不喜欢闻到异味",assets/passengers/zhanghe.png,assets/passengers/zhangheAngry.png,
+5,凌统,"必须站立","我坐着轮椅，给我安排站位就好",assets/passengers/lingtong.png,assets/passengers/lingtongAngry.png,
+6,阿蝉,"无","我坐哪里都可以",assets/passengers/achan.png,assets/passengers/achanAngry.png,
+7,郭嘉,"要求同伴;双人座","我想和小红淑女坐在一起",assets/passengers/guojia.png,assets/passengers/guojiaAngry.png,8
+8,贾诩,"要求位置","我是残疾人，不要给我安排站位",assets/passengers/jiaxu.png,assets/passengers/jiaxuAngry.png,7
+9,伍丹,"无","我坐哪里都可以",assets/passengers/wudan.png,assets/passengers/wudanAngry.png,
